@@ -8,5 +8,5 @@ RUN apt-get update -y && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Install dependencies
-COPY requirements.txt /workspace/requirements_docker.txt
+COPY requirements_docker.txt /workspace/requirements_docker.txt
 RUN pip install -r requirements_docker.txt

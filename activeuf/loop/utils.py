@@ -224,10 +224,12 @@ def compute_rewards_with_uncertainty_bounds(
         all_input_ids = []
         for sample in samples:
             for completion in sample["completions"]:
-                conversation = [
-                    {"role": "user", "content": sample["prompt"]},
-                    {"role": "assistant", "content": completion["response_text"]},
-                ]
+                if isinstance(sample["prompt"], list):
+                    prompt_messages = sample["prompt"]
+                else:
+                    prompt_messages = [{"role": "user", "content": sample["prompt"]}]
+                conversation = prompt_messages + [{"role": "assistant", "content": completion["response_text"]}]
+
                 tokenized = tokenizer.apply_chat_template(
                     conversation, tokenize=True, return_tensors="pt"
                 ).squeeze(0)
@@ -322,11 +324,12 @@ def compute_kpis(rewards, acquired_idxs) -> list[dict]:
 
 
 def restructure_sample(x: dict) -> dict:
+    if isinstance(x["prompt"], list):
+        prompt_messages = x["prompt"]
+    else:
+        prompt_messages = [{"role": "user", "content": x["prompt"]}]
     for key in ["chosen", "rejected"]:
-        x[key] = [
-            {"role": "user", "content": x["prompt"]},
-            {"role": "assistant", "content": x[key]},
-        ]
+        x[key] = prompt_messages + [{"role": "assistant", "content": x[key]}]
     return x
 
 
