@@ -2,7 +2,7 @@
 
 #SBATCH --job-name=loop
 #SBATCH -D .
-#SBATCH -A infra01
+#SBATCH -A ${SLURM_ACCOUNT:-your-slurm-account}
 #SBATCH --output=./logs/O-%x.%j
 #SBATCH --error=./logs/E-%x.%j
 #SBATCH --nodes=4
@@ -10,7 +10,7 @@
 #SBATCH --gres=gpu:4
 #SBATCH --cpus-per-task=288
 #SBATCH --time=04:00:00
-#SBATCH --environment=activeuf_thesis
+#SBATCH --environment=activeuf_dev
 
 export GPUS_PER_NODE=4
 export HF_HOME=$SCRATCH/huggingface
