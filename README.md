@@ -84,7 +84,7 @@ Use a Hugging Face [`Dataset`](https://huggingface.co/docs/datasets). Each row m
 |--------|------|-------|
 | `prompt_id` | `str` | Unique id per example. |
 | `source` | `str` | Source of the prompt |
-| `prompt` | `str` | The prompt |
+| `prompt` | `str` or `List[Dict]` | The prompt |
 | `completions` | [`List[Completion]`](./activeuf/schemas.py) | Optional. Used to for filtering out already-generated completions when continuing a previous run. |
 
 #### 1. Response Generation
