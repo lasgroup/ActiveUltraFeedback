@@ -5,10 +5,15 @@ from activeuf.acquisition_function.base import BaseAcquisitionFunction
 
 class MaxMinLCB(BaseAcquisitionFunction):
     """
-    Placeholder for MaxMinLCB acquisition function.
-    This class is not implemented yet.
+    MaxMin Lower Confidence Bound (LCB) acquisition function for active
+    dueling/preference selection.
 
-    The functions defined in the class assume upper and lower bounds are symmetric.
+    For each prompt, constructs pairwise reward difference and joint uncertainty
+    matrices, then selects the completion pair (chosen, rejected) that maximizes
+    the minimum LCB across opponents. Optionally prunes clearly suboptimal arms
+    via a UCB-based candidate set before solving the max-min problem.
+
+    Assumes upper and lower bounds are symmetric around the reward estimate.
     """
 
     def __init__(

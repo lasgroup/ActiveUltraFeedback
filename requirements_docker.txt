@@ -2,6 +2,7 @@
 accelerate==1.13.0
 antlr4-python3-runtime==4.9.3
 datasets==4.2.0
+deepspeed==0.16.2
 fsspec==2025.9.0
 gitdb==4.0.12
 GitPython==3.1.46
