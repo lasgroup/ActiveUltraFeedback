@@ -5,6 +5,12 @@
 [![Hugging Face](https://img.shields.io/badge/Hugging%20Face-ActiveUltraFeedback-yellow.svg)](https://huggingface.co/ActiveUltraFeedback)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
+## Updates
+
+- 30.04.2026 — Accepted to ICML 2026! 🎉
+- 09.04.2026 — Our code is now publicly available.
+- 25.03.2026 — We published a blog post with a high-level overview and key findings of our paper.
+- 10.03.2026 — Our paper is available on arXiv.
 
 ## Introduction
 
