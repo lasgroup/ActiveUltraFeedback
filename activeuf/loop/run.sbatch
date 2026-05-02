@@ -13,7 +13,7 @@
 #SBATCH --environment=activeuf_dev
 
 export GPUS_PER_NODE=4
-export HF_HOME=$SCRATCH/huggingface
+export HF_HOME=${HF_HOME:-/path/to/hf_cache}
 export CUDA_VISIBLE_DEVICES=0,1,2,3
 
 # Defaults (override via environment variables)
